@@ -1,0 +1,12 @@
+<footer class="footer">
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= link_to "Post?", "#", id: "post" %>
+    <% end %>
+    <nav>
+      <ul>
+        <li><%= link_to "利用規約", "#" %></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
