@@ -21,3 +21,9 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore ENVFILE
+/.env
+
+# アップロードされたテスト画像を無視する
+/public/uploads
