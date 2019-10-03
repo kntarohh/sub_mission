@@ -9,6 +9,14 @@ Rails.application.routes.draw do
   get  '/home',   to: 'static_pages#home'
   get  '/edit_password', to: 'users#edit_password'
   get  '/update_password', to: 'users#update_password'
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :posts,         only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
