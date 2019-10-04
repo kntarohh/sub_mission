@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get  '/home',   to: 'static_pages#home'
   get  '/edit_password', to: 'users#edit_password'
-  get  '/update_password', to: 'users#update_password'
+  patch  '/update_password', to: 'users#update_password'
   
   resources :users do
     member do
