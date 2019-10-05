@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
     <% if user_signed_in? %>
-      <%= link_to "Post?", "#", id: "post" %>
+      <%= link_to "アップロード", new_post_path, id: "post" %>
     <% end %>
     <nav>
       <ul>

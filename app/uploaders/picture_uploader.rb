@@ -2,11 +2,13 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_limit: [300, 300]
   
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
+  # if Rails.env.production?
+  #   storage :fog
+  # else
+  #   storage :file
+  # end
+  
+  storage :file
 
   # アップロードファイルの保存先ディレクトリは上書き可能
   # 下記はデフォルトの保存先  
