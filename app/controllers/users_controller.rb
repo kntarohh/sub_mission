@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   
+  before_action :authenticate_user!
   before_action :admin_user,     only: :destroy
   before_action :get_user,   only: [:edit_password, :update_password]
   
@@ -40,12 +41,11 @@ class UsersController < ApplicationController
   # パスワードを変更する
   def update_password
 
-    if params[:user][:password].empty?
-      @user.errors.add(:password, :blank)
+    if !check_password
       render 'edit_password'
     elsif @user.valid_password?(params[:user][:current_password]) && @user.update_attributes(user_params)
-      flash[:success] = "Password has been reset."
-      redirect_to @user
+      flash[:notice] = "パスワードが変更されました"
+      redirect_to new_user_session_url
     else
       render 'edit_password'
     end
@@ -63,6 +63,24 @@ class UsersController < ApplicationController
     
     def get_user
       @user = current_user
+    end
+    
+    def check_password
+      if params[:user][:password].empty?
+        flash[:danger] = "パスワードを入力してください"
+        false
+      elsif params[:user][:password_confirmation].empty?
+        flash[:danger] = "パスワード（確認）を入力してください"
+        false
+      elsif params[:user][:password] != params[:user][:password_confirmation]
+        flash[:danger] = "確認に失敗しました"
+        false
+      elsif params[:user][:password] == params[:user][:current_password]
+        flash[:danger] = "他のパスワードを入力してください"
+        false
+      else
+          true
+      end
     end
 end
  
