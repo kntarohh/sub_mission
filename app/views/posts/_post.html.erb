@@ -1,7 +1,10 @@
 <li id="post-<%= post.id %>">
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content">
-    <%= image_tag post.picture.url if post.picture? %>
+    <% if post.picture? %>
+      <%= link_to image_tag(post.picture.url), post_path(post), remote: true %>
+    <% end %>
+    <div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
