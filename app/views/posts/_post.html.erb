@@ -1,17 +1,31 @@
 <li id="post-<%= post.id %>">
-  <span class="user"><%= link_to post.user.name, post.user %></span>
-  <span class="content">
-    <% if post.picture? %>
-      <%= link_to image_tag(post.picture.url), post_path(post), remote: true %>
-    <% end %>
-    <div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
-    <% if current_user?(post.user) %>
-      <%= link_to "delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
-  <%= render "likes/like", post: post %>
+  <div class="row">
+    <div class="user">
+      <%= link_to post.user.name, post.user %>
+    </div>
+    <div class="content">
+      <% if post.picture? %>
+        <%= link_to image_tag(post.picture.url), post_path(post), remote: true %>
+      <% end %>
+    </div>
+    <div class="timestamp">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+      <% if current_user?(post.user) %>
+        <%= link_to "delete", post, method: :delete,
+                                         data: { confirm: "You sure?" } %>
+      <% end %>
+    </div>
+    <div>
+      <%= form_for(@comment, url:post_comments_path(post)) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="col-md-8">
+          <%= f.text_field :content, class: 'form-control' %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "コメント", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <%= render "likes/like", post: post %>
+  </div>
 </li>

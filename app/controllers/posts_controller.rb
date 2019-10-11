@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
   
   def show
-    @comment = current_user.comments.build
     @post = Post.find(params[:id])
     @comment_list = @post.comments
     respond_to do |format|
