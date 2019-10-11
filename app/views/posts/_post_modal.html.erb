@@ -1,5 +1,23 @@
 <div class="modal-dialog">
   <div class="modal-content">
-    <%= image_tag @post.picture.url %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= image_tag @post.picture.url %>
+        <div>
+          <%= render 'shared/list_comment' %>
+        </div>
+        <div>
+          <%= form_for(@comment, url:post_comments_path(@post)) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="col-md-9">
+            <%= f.text_field :content, class: 'form-control' %>
+          </div>
+          <div class="col-md-3">
+            <%= f.submit "投稿", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

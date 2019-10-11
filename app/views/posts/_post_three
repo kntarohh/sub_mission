@@ -1,0 +1,17 @@
+<% @posts.each_slice(3) do |post1,post2,post3| %>
+    <div class = "content pull-left">
+      <% if post1 != nil%>
+        <%= render post1 %>
+      <% end %>
+    </div>
+    <div class = "content pull-left">
+     <% if post2 != nil%>
+        <%= render post2 %>
+      <% end %>
+    </div>
+    <div class = "content pull-left">
+     <% if post3 != nil%>
+        <%= render post3 %>
+      <% end %>
+    </div>
+<% end %>

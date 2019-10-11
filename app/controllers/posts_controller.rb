@@ -4,11 +4,13 @@ class PostsController < ApplicationController
   before_action :correct_user,   only: :destroy
   
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
   
   def show
+    @comment = current_user.comments.build
     @post = Post.find(params[:id])
+    @comment_list = @post.comments
     respond_to do |format|
       format.html
       format.js
