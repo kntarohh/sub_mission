@@ -23,7 +23,7 @@ class Post < ApplicationRecord
   def iine?(user)
     iine_users.include?(user)
   end
-  
+
   private
 
     # アップロードされた画像のサイズをバリデーションする

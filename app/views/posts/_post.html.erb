@@ -15,7 +15,7 @@
                                          data: { confirm: "You sure?" } %>
       <% end %>
     </div>
-    <div>
+    <div class="comment_form">
       <%= form_for(@comment, url:post_comments_path(post)) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class="col-md-8">
