@@ -23,7 +23,7 @@
 .byebug_history
 
 # Ignore ENVFILE
-; /.env
+/.env
 
 # アップロードされたテスト画像を無視する
 /public/uploads
