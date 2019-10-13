@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       flash[:notice] = "パスワードが変更されました"
       redirect_to new_user_session_url
     else
-      render 'edit_password'
+      redirect_to edit_password_path
     end
   end
   
