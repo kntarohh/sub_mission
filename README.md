@@ -1,24 +1,17 @@
-# README
+自分が苦労した点
+・deviseのコントローラーの使い方
+・パスワード変更画面の作成・パスワードの変更
+・プロフィール画面で画像を３枚ずつ表示する方法
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+学んだ点
+・deviseは便利だが、ある程度理解するまではカスタマイズに苦戦する
+・ググる時はrailsのバージョンを意識するべき
+・テストはやるべき
 
-Things you may want to cover:
+相談したい点
+・CarrierWave、MiniMagickを用いた画像アップロードの際の画像リサイズについて
+・画像を３枚ずつ表示するところの、画像間の間隔を調整する方法について
+・コメントから画像を検索する方法
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+自慢したい点
+・フッターの画像投稿画面へのリンク
