@@ -107,15 +107,17 @@ footer {
   }
 }
 
-#post {
+#upload {
   float: left;
   margin-right: 10px;
+  padding: 5px;
   font-size: 1.7em;
   color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
-  // padding-top: 9px;
   font-weight: bold;
+  border: solid 3px black;
+  border-radius: 10px;
   &:hover {
     color: blue;
     text-decoration: none;

@@ -18,7 +18,7 @@
       </div>
       <div class="col-md-offset-1 col-md-4">
         <% if current_user?(post.user) %>
-          <%= link_to "delete", post, method: :delete,
+          <%= link_to "削除", post, method: :delete,
                                         data: { confirm: "You sure?" } %>
         <% end %>
       </div>

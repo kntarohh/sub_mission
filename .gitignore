@@ -27,3 +27,6 @@
 
 # アップロードされたテスト画像を無視する
 /public/uploads
+
+# 一時待避ファイル
+/app/views/ESCAPE

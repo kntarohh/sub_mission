@@ -9,27 +9,23 @@ class Post < ApplicationRecord
   validates :picture, presence: true
   validate  :picture_size
   
-  # イイネする
   def give_iine(user)
     likes.create(user_id: user.id)
   end
 
-  # イイネを取り消す
   def cancel_iine(user)
     likes.find_by(user_id: user.id).destroy
   end
   
-  # postがイイネされているかチェック
   def iine?(user)
     iine_users.include?(user)
   end
 
   private
 
-    # アップロードされた画像のサイズをバリデーションする
     def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
+      if picture.size > 3.megabytes
+        errors.add(:picture, "should be less than 3MB")
       end
     end
 end

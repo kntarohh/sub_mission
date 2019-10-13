@@ -4,10 +4,12 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   before_action :get_user,   only: [:edit_password, :update_password]
   
+  # ユーザー一覧（ヘッダー）
   def index
     @users = User.paginate(page: params[:page])
   end
   
+  # ユーザー個別ページ
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
@@ -38,9 +40,7 @@ class UsersController < ApplicationController
     
   end
   
-  # パスワードを変更する
   def update_password
-
     if !check_password
       render 'edit_password'
     elsif @user.valid_password?(params[:user][:current_password]) && @user.update_attributes(user_params)
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
         flash[:danger] = "他のパスワードを入力してください"
         false
       else
-          true
+        true
       end
     end
 end

@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # The path used after sign up.
+  # ユーザー登録後、プロフィール画面に遷移する
   def after_sign_up_path_for(resource)
     user_path(id: current_user.id)
   end
@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   
-  # アカウント編集後、プロフィール画面に移動する
+  # アカウント編集後、プロフィール画面に遷移する
   def after_update_path_for(resource)
     user_path(id: current_user.id)
   end

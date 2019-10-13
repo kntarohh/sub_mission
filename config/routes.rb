@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
   root 'static_pages#home'
   get  '/home',   to: 'static_pages#home'
+  get  '/term',   to: 'static_pages#term'
   get  '/edit_password', to: 'users#edit_password'
   patch  '/update_password', to: 'users#update_password'
   
