@@ -347,12 +347,8 @@ span.picture {
   }
 }
 
-/* miscellaneous */
+/* ユーザー個別画面 */
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+.post_margin {
+  margin-bottom: 10px;
 }
