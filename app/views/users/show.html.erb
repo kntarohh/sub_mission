@@ -1,0 +1,43 @@
+<% provide(:title, @user.name) %>
+<h2>ユーザー個別ページ</h2>
+
+<div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+    <section class="introduction">
+      <%= @user.self_introduction %>
+    </section>
+    <% if current_user?(@user) %>
+      <%= link_to "プロフィール編集", edit_user_registration_path %>
+    <% end %>
+  </aside>
+  <div class="col-md-7">
+    <%= render 'follow_form' if user_signed_in? %>
+    <% if @user.posts.any? %>
+      <h3>投稿数 (<%= @user.posts.count %>)</h3>
+      <div class="container">
+        <% @posts.each_slice(3) do |group| %>
+          <div class = "row">
+            <% group.each do |post| %>
+              <div class = "col-xs-3 post_margin">
+                <% if post %>
+                  <%= link_to image_tag(post.picture.url, size: '280x280'), post_path(post), remote: true %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <%= will_paginate @posts %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<% provide(:title, "Comment") %>
+<h2>写真個別ページ</h2>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div>
+      <%= image_tag @post.picture.url %>
+    </div>
+    <div>
+      <%= render 'shared/list_comment' %>
+    </div>
+    <div class="comment_form">
+      <%= form_for(@comment, url:post_comments_path(@post)) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="col-md-8">
+          <%= f.text_field :content, class: 'form-control' %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "コメント", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

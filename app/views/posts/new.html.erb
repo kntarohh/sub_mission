@@ -1,0 +1,16 @@
+<% provide(:title, "Post") %>
+<h2>写真投稿</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 jumbotron">
+    <div class="post_form col-md-8 col-md-offset-2">
+      <%= form_for(@post) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <span class="picture">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/png' %>
+        </span>
+        <%= f.submit "投稿する", class: "btn btn-primary submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

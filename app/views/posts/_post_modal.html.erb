@@ -1,0 +1,16 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= image_tag @post.picture.url %>
+        <div>
+          <% if @post.comments.any? %>
+            <%= render 'shared/list_comment' %>
+          <% else %>
+            <%= render plain: "コメントはありません" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

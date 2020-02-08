@@ -1,0 +1,38 @@
+<li id="post-<%= post.id %>">
+  <div class="row">
+    <div class="user">
+      <%= link_to gravatar_for(post.user, size: 50), post.user %>
+      <%= link_to post.user.name, post.user %>
+    </div>
+    <div class="content">
+      <% if post.picture? %>
+        <%= link_to image_tag(post.picture.url), post_path(post), remote: true %>
+      <% end %>
+    </div>
+    <div class="post_actionbar row">
+      <div class="col-md-2">
+        <%= render "likes/like", post: post %>
+      </div>
+      <div class="timestamp col-md-4">
+        Posted <%= time_ago_in_words(post.created_at) %> ago.
+      </div>
+      <div class="col-md-offset-1 col-md-4">
+        <% if current_user?(post.user) %>
+          <%= link_to "削除", post, method: :delete,
+                                        data: { confirm: "You sure?" } %>
+        <% end %>
+      </div>
+    </div>
+    <div class="comment_form">
+      <%= form_for(@comment, url:post_comments_path(post)) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="col-md-8">
+          <%= f.text_field :content, class: 'form-control' %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "コメント", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</li>

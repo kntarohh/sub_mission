@@ -1,0 +1,12 @@
+<footer class="footer">
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= link_to "UPLOAD", new_post_path, id: "upload" %>
+    <% end %>
+    <nav>
+      <ul>
+        <li><%= link_to "利用規約", term_path %></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
