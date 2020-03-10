@@ -263,7 +263,7 @@ input {
   }
 }
 
-/* ユーザ情報変更 */ 
+/* ユーザ情報変更 */
 .cancel_my_account {
   margin-top: 100px;
 }
@@ -350,5 +350,16 @@ span.picture {
 /* ユーザー個別画面 */
 
 .post_margin {
+  margin-bottom: 10px;
+}
+
+/* HOME画面 */
+
+.home-background {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.signup-signin {
   margin-bottom: 10px;
 }
