@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<h2>ユーザー個別ページ</h2>
+<h2>~~~ @<%= @user.name %>'s page ~~~</h2>
 
 <div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div class="row">
@@ -23,7 +23,7 @@
   <div class="col-md-7">
     <%= render 'follow_form' if user_signed_in? %>
     <% if @user.posts.any? %>
-      <h3>投稿数 (<%= @user.posts.count %>)</h3>
+      <h3>posts (<%= @user.posts.count %>)</h3>
       <div class="container">
         <% @posts.each_slice(3) do |group| %>
           <div class = "row">
@@ -37,6 +37,10 @@
           </div>
         <% end %>
         <%= will_paginate @posts %>
+      </div>
+    <% else %>
+      <div class="center no_post">
+        <h5>NO POST YET!</h5>
       </div>
     <% end %>
   </div>
