@@ -15,11 +15,13 @@
     </div>
   </div>
 <% else %>
-  <div class="center jumbotron">
-  <h1>Welcome!!</h1>
-  
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-primary" %>
-  </div>
-  
+    <div class="home-background center row">
+      <div class="row">
+        <%= image_tag("home/shibuya-crossing.jpg", data:{bgposition: "center center", bgfit: "cover" , bgrepeat: "no-repeat"}) %>
+      </div>
+      <div class="row signup-signin">
+        <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-primary" %>
+      </div>
+    </div>
 <% end %>
