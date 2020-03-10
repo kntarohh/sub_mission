@@ -2,7 +2,9 @@ version: "3"
 volumes:
   postgresql-data:
   redis-data:
-  bundle:
+  # bundle:
+  vendor_bundle:
+  vendor_assets:
   node_modules:
 
 services:
@@ -48,7 +50,9 @@ services:
       # https://qiita.com/shotat/items/57d049793605ffc20135
       - /sub_mission/log
       - /sub_mission/tmp
-      - bundle:/usr/local/bundle
+      # - bundle:/usr/local/bundle
+      - vendor_bundle:/sub_mission/vendor/bundle
+      - vendor_assets:/sub_mission/vendor/assets
       - node_modules:/sub_mission/node_modules
     tty: true
     stdin_open: true

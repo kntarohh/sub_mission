@@ -1,19 +1,21 @@
 # -*- mode: dockerfile -*-
 FROM ruby:2.4.0
 
+RUN mkdir /sub_mission
+ENV APP_ROOT /sub_mission
+WORKDIR $APP_ROOT
+
 RUN apt-get update -qq && \
     apt-get install -y build-essential \
                        libpq-dev \
                        nodejs
 
-RUN mkdir /sub_mission
-
-ENV APP_ROOT /sub_mission
-WORKDIR $APP_ROOT
 
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
-RUN gem install bundler
-RUN bundle install --without production
+
+RUN bundle install -j3 --path vendor/bundle
+RUN bundle exec rails db:create
+RUN bundle exec rails db:migrate
 ADD . $APP_ROOT
