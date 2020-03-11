@@ -1,8 +1,15 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <%= image_tag @post.picture.url %>
+      <div class="picture_comment col-md-8 col-md-offset-2">
+        <div class="row">
+          <% if current_user?(@post.user) %>
+            <%= link_to "削除", @post, method: :delete, class: "picture_delete2", data: { confirm: "You sure?" } %>
+          <% end %>
+        </div>
+        <div class="center">
+          <%= image_tag @post.picture.url, width: "320px" %>
+        </div>
         <div>
           <% if @post.comments.any? %>
             <%= render 'shared/list_comment' %>

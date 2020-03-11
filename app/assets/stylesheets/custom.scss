@@ -32,8 +32,16 @@ textarea {
   }
 }
 
+.right {
+  float: right;
+}
+
 .submit {
   margin-top: 10px;
+}
+
+.links {
+  margin-top: 8px;
 }
 
 /* typography */
@@ -265,7 +273,16 @@ input {
 
 /* ユーザ情報変更 */
 .cancel_my_account {
-  margin-top: 100px;
+  margin-top: 150px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
 }
 
 /* フラッシュメッセージ */
@@ -347,19 +364,34 @@ span.picture {
   }
 }
 
+.picture_comment {
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.picture_delete1 {
+  float: right;
+  margin-right: 100px;
+}
+
+.picture_delete2 {
+  float: right;
+  margin-right: 10px;
+}
+
 /* ユーザー個別画面 */
 
 .post_margin {
   margin-bottom: 10px;
 }
 
-/* HOME画面 */
-
-.home-background {
-  background-color: black;
-  border-radius: 10px;
+.no_post {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
+/* HOME画面 */
+
 .signup-signin {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
