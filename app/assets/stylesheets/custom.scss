@@ -381,8 +381,13 @@ span.picture {
 
 /* ユーザー個別画面 */
 
-.post_margin {
-  margin-bottom: 10px;
+.post_background {
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.group_margin {
+  margin-bottom: 3px;
 }
 
 .no_post {
