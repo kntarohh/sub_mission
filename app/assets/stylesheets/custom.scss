@@ -32,6 +32,10 @@ textarea {
   }
 }
 
+.right {
+  float: right;
+}
+
 .submit {
   margin-top: 10px;
 }
@@ -363,6 +367,16 @@ span.picture {
 .picture_comment {
   background-color: lightgray;
   border-radius: 10px;
+}
+
+.picture_delete1 {
+  float: right;
+  margin-right: 100px;
+}
+
+.picture_delete2 {
+  float: right;
+  margin-right: 10px;
 }
 
 /* ユーザー個別画面 */
