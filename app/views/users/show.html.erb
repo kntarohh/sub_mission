@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<h2>@<%= @user.name %>'s page</h2>
+<h2></h2>
 
 <div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div class="row">
@@ -21,18 +21,16 @@
     <% end %>
     <%= render 'follow_form' if user_signed_in? %>
   </aside>
-  <div class="col-md-7">
+  <div class="col-md-9 post_background">
     <% if @user.posts.any? %>
       <h3>posts (<%= @user.posts.count %>)</h3>
       <div class="container">
         <% @posts.each_slice(3) do |group| %>
-          <div class = "row">
+          <div class = "row col-md-12 group_margin">
             <% group.each do |post| %>
-              <div class = "col-xs-3 post_margin">
-                <% if post %>
-                  <%= link_to image_tag(post.picture.url, size: '280x280'), post_path(post), remote: true %>
-                <% end %>
-              </div>
+              <% if post %>
+                <%= link_to image_tag(post.picture.url, size: '260x260'), post_path(post), remote: true %>
+              <% end %>
             <% end %>
           </div>
         <% end %>
